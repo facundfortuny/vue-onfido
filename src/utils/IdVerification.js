@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-const host = `http://localhost:3000`
+const serverUrl = import.meta.env.VITE_SERVER_URL
 
 export const create = async (payload) => {
-  const url = `${host}/CreateApplicant`
+  const url = `${serverUrl}/CreateApplicant`
 
   const { data } = await axios.post(url, payload)
 
@@ -11,7 +11,7 @@ export const create = async (payload) => {
 }
 
 export const updateEvent = async (payload) => {
-  const url = `${host}/UpdateEvent`
+  const url = `${serverUrl}/UpdateEvent`
 
   const { data } = await axios.put(url, payload)
 
@@ -19,7 +19,7 @@ export const updateEvent = async (payload) => {
 }
 
 export const createCheck = async (payload) => {
-  const url = `${host}/CreateCheck`
+  const url = `${serverUrl}/CreateCheck`
 
   const { data } = await axios.post(url, payload)
 
@@ -27,7 +27,7 @@ export const createCheck = async (payload) => {
 }
 
 export const getCheckAPI = async (checkId) => {
-  const url = `${host}/Check/${checkId}`
+  const url = `${serverUrl}/Check/${checkId}`
 
   const { data } = await axios.get(url)
 
@@ -35,7 +35,7 @@ export const getCheckAPI = async (checkId) => {
 }
 
 export const getReports = async (checkId) => {
-  const url = `${host}/Reports/${checkId}`
+  const url = `${serverUrl}/Reports/${checkId}`
 
   const { data } = await axios.get(url)
 
@@ -43,7 +43,7 @@ export const getReports = async (checkId) => {
 }
 
 export const getReport = async (reportId) => {
-  const url = `${host}/Report/${reportId}`
+  const url = `${serverUrl}/Report/${reportId}`
 
   const { data } = await axios.get(url)
 
@@ -51,7 +51,7 @@ export const getReport = async (reportId) => {
 }
 
 export const getAutofillData = async (documentId) => {
-  const url = `${host}/Autofill/${documentId}`
+  const url = `${serverUrl}/Autofill/${documentId}`
 
   const { data } = await axios.get(url)
 

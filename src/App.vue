@@ -1,11 +1,10 @@
 <script setup>
-// import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import OnfidoSDK from './components/OnfidoSDK.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <OnfidoSDK />
   </main>
 </template>
 

@@ -11,10 +11,7 @@ const initObj = {
   firstSurname: 'Smith',
   secondSurname: 'Smith',
   phoneCountryCode: '34',
-  phoneNumber: '666666666',
-  investorAccountRequestId: '6489870ba16546390c255e92',
-  personIndex: 0,
-  personId: '1050'
+  phoneNumber: '666666666'
 }
 
 const initOnfido = async () => {
@@ -41,17 +38,17 @@ const initOnfido = async () => {
             title: 'ID verification'
           }
         },
-        // {
-        //   type: 'document',
-        //   options: {
-        //     documentTypes: {
-        //       national_identity_card: true,
-        //       residence_permit: true,
-        //       passport: true
-        //     },
-        //     forceCrossDevice: true
-        //   }
-        // },
+        {
+          type: 'document',
+          options: {
+            documentTypes: {
+              national_identity_card: true,
+              residence_permit: true,
+              passport: true
+            },
+            forceCrossDevice: true
+          }
+        },
         {
           type: 'face',
           options: {
