@@ -32,12 +32,12 @@ const initOnfido = async () => {
         console.log('Everything is complete', data)
       },
       steps: [
-        {
-          type: 'welcome',
-          options: {
-            title: 'ID verification'
-          }
-        },
+        // {
+        //   type: 'welcome',
+        //   options: {
+        //     title: 'ID verification'
+        //   }
+        // },
         {
           type: 'document',
           options: {
@@ -91,6 +91,7 @@ onMounted(() => {
 <style>
 #onfido-mount {
   width: 100%;
+  max-width: 350px;
   min-height: 300px;
 }
 </style>
