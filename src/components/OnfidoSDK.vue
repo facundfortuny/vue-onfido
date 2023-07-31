@@ -3,7 +3,6 @@ import { onMounted, ref } from 'vue'
 import { create, updateEvent } from '@/utils/IdVerification.js'
 import * as Onfido from 'onfido-sdk-ui'
 
-let onfido
 const applicantId = ref('')
 
 const initObj = {
@@ -23,7 +22,7 @@ const initOnfido = async () => {
     applicantId.value = applicant.applicantId
     tokenSDK = sdkToken
 
-    onfido = Onfido.init({
+    Onfido.init({
       useModal: false,
       token: tokenSDK,
       containerId: 'onfido-mount',
@@ -32,20 +31,9 @@ const initOnfido = async () => {
         console.log('Everything is complete', data)
       },
       steps: [
-        // {
-        //   type: 'welcome',
-        //   options: {
-        //     title: 'ID verification'
-        //   }
-        // },
         {
           type: 'document',
           options: {
-            documentTypes: {
-              national_identity_card: true,
-              residence_permit: true,
-              passport: true
-            },
             forceCrossDevice: true
           }
         },
@@ -83,15 +71,39 @@ onMounted(() => {
 </script>
 
 <template>
-  <section>
+  <section class="idVerificationContainer">
     <div id="onfido-mount"></div>
   </section>
 </template>
 
 <style>
-#onfido-mount {
-  width: 100%;
-  max-width: 350px;
-  min-height: 300px;
+.idVerificationContainer {
+  height: 600px;
+}
+@media only screen and (max-width: 479px) {
+  .idVerificationContainer #onfido-mount .onfido-sdk-ui-Modal-inner {
+    position: relative;
+    height: 37.5rem;
+    border-radius: 8px;
+  }
+}
+.idVerificationContainer #onfido-mount p {
+  margin-bottom: 0;
+}
+.idVerificationContainer #onfido-mount .onfido-sdk-ui-PageTitle-titleWrapper {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+.idVerificationContainer
+  #onfido-mount
+  .onfido-sdk-ui-PageTitle-titleWrapper
+  .onfido-sdk-ui-PageTitle-title {
+  font-size: 22px !important;
+}
+.idVerificationContainer
+  #onfido-mount
+  .onfido-sdk-ui-PageTitle-titleWrapper
+  .onfido-sdk-ui-PageTitle-subTitle {
+  font-size: 16px !important;
 }
 </style>
